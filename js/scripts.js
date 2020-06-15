@@ -72,21 +72,54 @@ Contact.prototype.fullName = function() {
 // User Interface Logic
 let addressBook = new AddressBook();
 
+function displayContactDetails(addressBookToDisplay) {
+  let contactsList = $("ul#contacts");
+  let htmlForContactInfo = "";
+  addressBookToDisplay.contacts.forEach(function(contact) {
+    htmlForContactInfo += "<li id=" + contact.id + ">" + contact.firstName + " " + contact.lastName + "</li>";
+  });
+  contactsList.html(htmlForContactInfo);
+}
+
+function showContact(contactId) {
+  const contact = addressBook.findContact(contactId);
+  $("#show-contact").show();
+  $(".first-name").html(contact.firstName);
+  $(".last-name").html(contact.lastName);
+  $(".phone-number").html(contact.phoneNumber);
+  let buttons = $("#buttons");
+  buttons.empty();
+  buttons.append("<button class='deleteButton' id=" +  + contact.id + ">Delete</button>");
+}
+
+function attachContactListeners() {
+  $("ul#contacts").on("click", "li", function() {
+    showContact(this.id);;
+  });
+  $("#buttons").on("click", ".deleteButton", function() {
+    addressBook.deleteContact(this.id);
+    $("#show-contact").hide();
+    displayContactDetails(addressBook);
+  });
+};
+
 $(document).ready(function(){
-  $("form#add-contact").submit(function(event){
+  attachContactListeners();
+  $("form#new-contact").submit(function(event){
     event.preventDefault();
-    let firstName = $("#firstName").val();
-    let lastName = $("#lastName").val();
-    let phoneNumber = $("#phone").val();
+    let firstName = $("#new-first-name").val();
+    let lastName = $("#new-last-name").val();
+    let phoneNumber = $("#new-phone-number").val();
     if(!lastName || !firstName || !phoneNumber){
       alert("Empty or incorrect input");
       return;
     }
+    $("input#new-first-name").val("");
+    $("input#new-last-name").val("");
+    $("input#new-phone-number").val("");
+
     let contact = new Contact(firstName, lastName, phoneNumber);
     addressBook.addContact(contact);
-    $("ul#contacts").append('<li class="panel"/>' + contact.fullName() + " (Phone: " + phoneNumber + ")" + '</li>');  
-    $("#lastName").val("");
-    $("#firstName").val("");
-    $("#phone").val("");
+    displayContactDetails(addressBook);
   });
 });
