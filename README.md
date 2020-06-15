@@ -19,7 +19,7 @@ Webpage that creates address book.
 |----------|-------|-------|
 | Takes User input and returns it | Text | Text |
 | Checks if input is not empty | empty input | "Empty or incorrect input" |
-| Add contact to the address book | "ABCD", "Dana", "999999999" | Contacts: ABCD Dana |
+| Add contact to the address book | "Dana", "Abcd", "999999999" | Contacts: Dana Abcd (Phone: 999999999) |
 
 ## Known Bugs
 

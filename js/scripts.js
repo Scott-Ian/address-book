@@ -61,12 +61,6 @@ AddressBook.prototype.deleteContact = function(id) {
     }                          
   };
   return false;
-  /*if(this.findContact(id)) {
-    delete this.findContact(id);
-    return true;
-  } else {
-    return false;
-  }*/
 }
 
 
@@ -81,42 +75,8 @@ Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
 
-/*let addressBook = new AddressBook();
-
-let contacts = [];
-
-let contact1 = new Contact("Evgeniya", "Chernaya", "333333333");
-let contact2 = new Contact("Vanessa", "Guerrero", "111111111");
-
-//contacts.push(contact1, contact2);
-
-addressBook.addContact(contact1);
-addressBook.addContact(contact2);
-
-//addressBook.addContactsArray(contacts);
-
-addressBook.modifyContact(1, "Eva", "Cher", "22222222");
-
-console.log(addressBook);
-
-console.log(addressBook.deleteContact(1));
-
-console.log(addressBook);
-
-addressBook.deleteContact(1);
-
-console.log(addressBook.findContact(2));
-console.log(addressBook.findContact(3));
-
-//console.log(addressBook.contacts[0]);
-
-console.log(addressBook);*/
-
-
 $(document).ready(function(){
   let addressBook = new AddressBook();
-  //const buttonModify = '<button class="btn" type="click" id="modify">Modify</button>';
-  //const buttonDelete = '<button class="btn" type="click" id="delete">Delete</button>';
   $("form#add-contact").submit(function(event){
     event.preventDefault();
     let lastName = $("#lastName").val();
@@ -128,15 +88,9 @@ $(document).ready(function(){
     }
     let contact = new Contact(firstName, lastName, phoneNumber);
     addressBook.addContact(contact);
-    $("ul#contacts").append('<li class="panel"/>' + contact.fullName() + '</li>');  
+    $("ul#contacts").append('<li class="panel"/>' + contact.fullName() + " (Phone: " + phoneNumber + ")" + '</li>');  
     $("#lastName").val("");
     $("#firstName").val("");
     $("#phone").val("");
   });
-  /*$("button#show-contacts").click(function(){
-    addressBook.contacts.forEach(function(element){
-      $("ul#contacts").append('<li class="panel"/>' + element.fullName() + " " + buttonModify + " " + buttonDelete + '</li>');  
-    });
-    $(".address-book").show();
-  });*/
 });
