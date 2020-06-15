@@ -9,12 +9,6 @@ AddressBook.prototype.addContact = function(contact) {
   this.contacts.push(contact);
 }
 
-/*AddressBook.prototype.addContactsArray = function(arrayOfContacts) {
-  arrayOfContacts.forEach(function(element) {
-    this.addContact(element);
-  });
-}*/
-
 AddressBook.prototype.assignId = function() {
   this.currentId += 1;
   return this.currentId;
@@ -75,12 +69,14 @@ Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
 
+// User Interface Logic
+let addressBook = new AddressBook();
+
 $(document).ready(function(){
-  let addressBook = new AddressBook();
   $("form#add-contact").submit(function(event){
     event.preventDefault();
-    let lastName = $("#lastName").val();
     let firstName = $("#firstName").val();
+    let lastName = $("#lastName").val();
     let phoneNumber = $("#phone").val();
     if(!lastName || !firstName || !phoneNumber){
       alert("Empty or incorrect input");
