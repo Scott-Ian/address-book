@@ -2,7 +2,7 @@
 
 #### HTML, CSS, JavaScript files, 06/15/2020
 
-#### By **Evgeniya Chernaya**, **Vanessa Guerrero**
+#### By **Evgeniya Chernaya**, **Vanessa Guerrero**, **Ian Scott**
 
 ## Description
 
@@ -19,7 +19,9 @@ Webpage that creates address book.
 |----------|-------|-------|
 | Takes User input and returns it | Text | Text |
 | Checks if input is not empty | empty input | "Empty or incorrect input" |
-| Add contact to the address book | "Dana", "Abcd", "999999999" | Contacts: Dana Abcd (Phone: 999999999) |
+| Add contact to the address book (First Name, Last Name, Phone Number, Email)| "Dana", "Abcd", "999999999", "someemail@email.com" | Contacts: Dana Abcd |
+| Click on contact will show full contact details with delete button | Dana Abcd | "Dana", "Abcd", "999999999", "someemail@email.com" |
+| Delete button removes the contact from contacts | Dana Abcd | _No Dana ABCD in the contact list |
 
 ## Known Bugs
 
@@ -38,4 +40,4 @@ _{No known bugs}_
 
 _This software is licensed under the MIT license_
 
-Copyright (c) 2020 **Evgeniya Chernaya**, **Vanessa Guerrero**.
+Copyright (c) 2020 **Evgeniya Chernaya**, **Vanessa Guerrero**, **Ian Scott**.
