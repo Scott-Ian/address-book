@@ -2,6 +2,12 @@
   display: none;
 }
 
-.show-work, .show-parents{
+.show-work, .show-parents, .show-work-input, .show-parents-input{
   display: none;
 }
+
+#add-work-field, #add-parents-field{
+  margin-top: 10px;
+}
+
+

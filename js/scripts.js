@@ -147,5 +147,15 @@ $(document).ready(function(){
     let contact = new Contact(firstName, lastName, phoneNumber, email, newAddress);
     addressBook.addContact(contact);
     displayContactDetails(addressBook);
+
+    $(".show-work-input").hide();
+    $(".show-parents-input").hide();
+
+  });
+  $("button#add-work-field").click(function(){
+    $(".show-work-input").show();
+  });
+  $("button#add-parents-field").click(function(){
+    $(".show-parents-input").show();
   });
 });
